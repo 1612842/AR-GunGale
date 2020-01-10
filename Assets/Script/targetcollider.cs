@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
-public class targetcollider : MonoBehaviour
+public class targetcollider : DefaultTrackableEventHandler
 {
     public static targetcollider instance;
 
@@ -25,5 +26,9 @@ public class targetcollider : MonoBehaviour
         temp.y = Random.Range(10f, 50f);
         temp.z = Random.Range(-48f, 48f);
         transform.position = new Vector3(temp.x, temp.y, temp.z);
+        if(DefaultTrackableEventHandler.trueFalse){
+            RaycastController.instance.playSound(0);
+        }
+        
     }
 }

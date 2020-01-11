@@ -114,9 +114,11 @@ public class gameController : DefaultTrackableEventHandler
 
     public IEnumerator playRound(){
         yield return new WaitForSeconds(2f);
-        roundTextTargetText.text = "SHOOT " + roundTargetScore + " DUCKS";
+        roundTextTargetText.text = "SHOOT " + roundTargetScore + " BIRDS";
         GUIRoundText.SetActive(true);
         playFX(0);
+        yield return new WaitForSeconds(2f);
+        playFX(3);
         StartCoroutine(hideRoundText());
     }
 
@@ -124,8 +126,9 @@ public class gameController : DefaultTrackableEventHandler
         yield return new WaitForSeconds(3);
         round++;
         GUIRoundText.SetActive(true);
-        roundTextTargetText.text = "SHOOT " + roundTargetScore + " DUCKS";
+        roundTextTargetText.text = "SHOOT " + roundTargetScore + " BIRDS";
         roundTextNumber.text = round.ToString();
+        playFX(3);
         StartCoroutine(hideRoundText());
     }
 
